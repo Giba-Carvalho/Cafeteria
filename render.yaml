@@ -5,7 +5,7 @@ services:
 
   - type: web
     name: cafeteria-backend
-    env: node
+    runtime: node
     plan: free
     rootDir: Backend
     buildCommand: npm ci
@@ -20,7 +20,7 @@ services:
 
   - type: web
     name: cafeteria-frontend
-    env: static
+    runtime: static
     plan: free
     rootDir: frontend
     buildCommand: npm ci && npm run build
