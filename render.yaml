@@ -5,7 +5,6 @@ services:
 
   - type: web
     name: cafeteria-backend
-    env: node
     plan: free
     rootDir: Backend
     buildCommand: npm install
@@ -20,7 +19,6 @@ services:
 
   - type: web
     name: cafeteria-frontend
-    env: node
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
