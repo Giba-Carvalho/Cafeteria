@@ -1,7 +1,7 @@
 services:
-  - - type: pserv
-  name: cafeteria-db
-  plan: free
+  - type: pserv
+    name: cafeteria-db
+    plan: free
 
   - type: web
     name: cafeteria-backend
@@ -11,15 +11,17 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
-  - key: DATABASE_URL
-    fromService:
-      name: cafeteria-db
-      type: pserv
-      property: internalConnectionString
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromService:
+          name: cafeteria-db
+          type: pserv
+          property: connectionString
 
   - type: web
     name: cafeteria-frontend
-    env: node
+    runtime: node
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
