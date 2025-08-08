@@ -1,8 +1,6 @@
 services:
   - type: pserv
     name: cafeteria-db
-    databaseName: cafeteria
-    user: cafeteria_user
     plan: free
 
   - type: web
