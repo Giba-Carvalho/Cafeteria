@@ -1,21 +1,44 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-const sequelize = new Sequelize({
-  database: process.env.DB_NAME || 'cafeteria',
-  username: process.env.DB_USER || 'user',
-  password: process.env.DB_PASS || 'pass',
-  host: process.env.DB_HOST || 'db',
-  port: process.env.DB_PORT || 5432,
-  dialect: 'postgres',
-  logging: process.env.NODE_ENV === 'development' ? console.log : false,
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  }
-});
+let sequelize;
+
+if (process.env.DATABASE_URL) {
+  // Produção - usar DATABASE_URL do Render
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    logging: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    },
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  });
+} else {
+  // Desenvolvimento - usar variáveis individuais
+  sequelize = new Sequelize({
+    database: process.env.DB_NAME || 'cafeteria',
+    username: process.env.DB_USER || 'user',
+    password: process.env.DB_PASS || 'pass',
+    host: process.env.DB_HOST || 'db',
+    port: process.env.DB_PORT || 5432,
+    dialect: 'postgres',
+    logging: process.env.NODE_ENV === 'development' ? console.log : false,
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  });
+}
 
 // Test connection
 const testConnection = async () => {

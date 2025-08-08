@@ -1,4 +1,4 @@
-const { Product } = require('../../models/index-sqlite');
+const { Product } = require('../../models');
 
 const seedProducts = async () => {
   try {
