@@ -20,11 +20,11 @@ services:
 
   - type: web
     name: cafeteria-frontend
-    env: static
+    env: node
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
-    staticPublishPath: build
+    startCommand: npx serve -s build
     envVars:
       - key: REACT_APP_API_URL
         value: https://cafeteria-backend.onrender.com/api
