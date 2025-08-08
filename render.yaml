@@ -12,8 +12,9 @@ services:
     env: node
     plan: free
     rootDir: Backend
-    buildCommand: npm install
+    buildCommand: npm ci
     startCommand: npm start
+    dockerfilePath: ""
     envVars:
       - key: NODE_ENV
         value: production
@@ -28,8 +29,9 @@ services:
     env: static
     plan: free
     rootDir: frontend
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     staticPublishPath: build
+    dockerfilePath: ""
     envVars:
       - key: REACT_APP_API_URL
         value: https://cafeteria-backend.onrender.com/api
