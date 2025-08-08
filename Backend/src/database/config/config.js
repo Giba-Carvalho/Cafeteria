@@ -1,5 +1,6 @@
 // backend/src/database/config/config.js
 require('dotenv').config();
+
 module.exports = {
   development: {
     username: process.env.DB_USER || 'user',
@@ -7,5 +8,15 @@ module.exports = {
     database: process.env.DB_NAME || 'cafeteria',
     host: process.env.DB_HOST || 'db',
     dialect: 'postgres'
+  },
+  production: {
+    use_env_variable: 'DATABASE_URL',
+    dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
   }
 };
