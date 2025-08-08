@@ -1,5 +1,5 @@
 services:
-  # PostgreSQL
+  # PostgreSQL (não colocar runtime nem startCommand)
   - type: pserv
     name: cafeteria-db
     plan: free
@@ -16,7 +16,7 @@ services:
         fromService:
           name: cafeteria-db
           type: pserv
-          property: connectionString
+          property: internalConnectionString
     rootDir: backend
 
   # Frontend React
