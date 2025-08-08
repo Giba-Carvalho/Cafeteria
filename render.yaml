@@ -1,5 +1,5 @@
 services:
-  # Database
+  # Database PostgreSQL
   - type: pserv
     name: cafeteria-db
     databaseName: cafeteria
@@ -11,8 +11,9 @@ services:
     name: cafeteria-backend
     env: node
     plan: free
-    buildCommand: cd Backend && npm install
-    startCommand: cd Backend && npm start
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -20,13 +21,15 @@ services:
         fromDatabase:
           name: cafeteria-db
           property: connectionString
-    autoDeploy: true
 
-  # Frontend
+  # Frontend Static Site
   - type: web
     name: cafeteria-frontend
     env: static
     plan: free
-    buildCommand: cd frontend && npm install && REACT_APP_API_URL=https://cafeteria-backend.onrender.com/api npm run build
-    staticPublishPath: frontend/build
-    autoDeploy: true
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://cafeteria-backend.onrender.com/api
