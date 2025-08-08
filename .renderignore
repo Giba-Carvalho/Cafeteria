@@ -1,0 +1,26 @@
+# Docker files - ignore to prevent Docker detection
+Dockerfile*
+docker-compose*
+.dockerignore*
+
+# Development files
+node_modules/
+.git/
+.env.local
+.env.development
+.env.test
+
+# Build artifacts
+build/
+dist/
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
