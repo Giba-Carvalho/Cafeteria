@@ -1,4 +1,4 @@
-const { Product } = require('../models/index-sqlite');
+const { Product } = require('../models/index');
 
 class ProductController {
   // Listar todos os produtos
