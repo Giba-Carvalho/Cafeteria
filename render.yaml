@@ -1,11 +1,13 @@
 services:
   - type: pserv
     name: cafeteria-db
+    databaseName: cafeteria
+    user: cafeteria_user
     plan: free
 
   - type: web
     name: cafeteria-backend
-    runtime: node
+    env: node
     plan: free
     rootDir: Backend
     buildCommand: npm install
@@ -17,10 +19,12 @@ services:
         fromDatabase:
           name: cafeteria-db
           property: connectionString
+      - key: FRONTEND_URL
+        value: https://cafeteria-frontend.onrender.com
 
   - type: web
     name: cafeteria-frontend
-    runtime: static
+    env: static
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
