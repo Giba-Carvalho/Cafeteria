@@ -14,8 +14,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        fromDatabase:
+        fromService:
           name: cafeteria-db
+          type: pserv
           property: connectionString
       - key: FRONTEND_URL
         value: https://cafeteria-frontend.onrender.com
