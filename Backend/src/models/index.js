@@ -35,6 +35,7 @@ const syncDatabase = async () => {
     await seedProducts();
   } catch (error) {
     console.error('Erro ao sincronizar tabelas:', error);
+    throw error; // Re-throw para que o servidor saiba que houve erro
   }
 };
 

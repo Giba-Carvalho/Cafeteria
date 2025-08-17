@@ -40,13 +40,24 @@ const PORT = process.env.PORT || 3001;
 // Inicializar banco de dados e servidor
 const startServer = async () => {
   try {
+    console.log('Iniciando servidor...');
+    console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'Definida' : 'Não definida');
+    console.log('NODE_ENV:', process.env.NODE_ENV);
+    
     await syncDatabase();
+    console.log('Banco de dados sincronizado com sucesso');
+    
     app.listen(PORT, () => {
       console.log(`Servidor rodando na porta ${PORT}`);
     });
   } catch (error) {
     console.error('Erro ao inicializar servidor:', error);
-    process.exit(1);
+    
+    // Mesmo com erro no banco, vamos tentar iniciar o servidor
+    console.log('Tentando iniciar servidor mesmo com erro no banco...');
+    app.listen(PORT, () => {
+      console.log(`Servidor rodando na porta ${PORT} (com erro no banco)`);
+    });
   }
 };
 
