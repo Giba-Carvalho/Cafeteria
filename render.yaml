@@ -3,7 +3,6 @@ databases:
     plan: free
 
 services:
-
   - type: web
     name: cafeteria-backend
     runtime: node
