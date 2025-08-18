@@ -102,7 +102,8 @@ export const productService = {
       return response.data;
     } catch (error) {
       console.error('Erro ao buscar produtos:', error);
-      console.log('Usando dados mock devido ao erro no backend');
+  console.log('🚨 USANDO DADOS MOCK - Backend indisponível');
+      console.log('📦 Retornando', mockProducts.length, 'produtos mock');
       // Retorna dados mock quando o backend falha
       return mockProducts;
     }
