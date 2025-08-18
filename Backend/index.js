@@ -26,6 +26,21 @@ app.use((req, res, next) => {
   next();
 });
 
+// Root route
+app.get('/', (req, res) => {
+  console.log('Root route accessed');
+  res.json({ 
+    message: 'Cafeteria API - Backend funcionando!',
+    status: 'OK',
+    endpoints: {
+      health: '/health',
+      products: '/api/products',
+      orders: '/api/orders'
+    },
+    frontend: process.env.FRONTEND_URL || 'https://cafeteria-frontend-0t1d.onrender.com'
+  });
+});
+
 // Routes
 app.use('/api', routes);
 
