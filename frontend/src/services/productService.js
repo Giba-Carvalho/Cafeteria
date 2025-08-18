@@ -44,7 +44,7 @@ const mockProducts = [
     description: 'Espresso com chocolate, leite vaporizado e chantilly',
     price: 8.00,
     category: 'coffee',
-    image: 'https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
     available: true
   },
   {
@@ -71,7 +71,7 @@ const mockProducts = [
     description: 'Croissant francês tradicional, crocante e amanteigado',
     price: 4.00,
     category: 'food',
-    image: 'https://images.unsplash.com/photo-1549903072-7e6e0bedb7fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
+    image: 'https://images.unsplash.com/photo-1555507036-ab794f4afe5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
     available: true
   },
   {
