@@ -40,7 +40,7 @@ const seedProducts = async () => {
         description: 'Espresso com chocolate, leite vaporizado e chantilly',
         price: 8.00,
         category: 'coffee',
-        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300',
+        image: 'https://tse2.mm.bing.net/th/id/OIP.dfrLepBlgEWiWEj8nH5dlQHaE8?pid=Api&P=0&h=180',
         available: true
       },
       {
@@ -64,7 +64,7 @@ const seedProducts = async () => {
         description: 'Croissant francês tradicional, crocante e amanteigado',
         price: 4.00,
         category: 'food',
-        image: 'https://images.unsplash.com/photo-1555507036-ab794f4afe5b?w=300',
+        image: 'https://images3.alphacoders.com/707/thumb-1920-707520.jpg',
         available: true
       },
       {
