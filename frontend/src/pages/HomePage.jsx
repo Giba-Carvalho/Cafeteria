@@ -22,8 +22,13 @@ export default function HomePage() {
     try {
       setLoading(true);
       const response = await productService.getAll();
+      // Se a resposta tem propriedade success, usa response.data, senão usa a resposta diretamente (dados mock)
       if (response.success) {
         setProducts(response.data);
+      } else if (Array.isArray(response)) {
+        // Dados mock retornados diretamente como array
+        setProducts(response);
+        setError(null); // Limpa qualquer erro anterior
       } else {
         setError('Erro ao carregar produtos');
       }
